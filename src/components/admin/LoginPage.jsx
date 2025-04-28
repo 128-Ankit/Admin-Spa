@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -83,7 +83,7 @@ const LoginPage = () => {
                 if (response.data.admin) {
                     localStorage.setItem('adminData', JSON.stringify(response.data.admin));
                 }
-                navigate('/dashboard');
+                navigate('/');
             } else {
                 throw new Error('Invalid response from server');
             }
@@ -187,9 +187,9 @@ const LoginPage = () => {
                 <div className="text-center">
                     <p className="text-sm text-gray-600">
                         Don't have an account? {' '}
-                        <a href="/signup" className="text-blue-500 hover:underline">
+                        <Link to="/signup" className="text-blue-500 hover:underline">
                             Sign up
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>
@@ -198,3 +198,5 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+

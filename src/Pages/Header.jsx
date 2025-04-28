@@ -1,12 +1,18 @@
 import { AiOutlineLogout } from "react-icons/ai";
 import { IoMdNotifications } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
+import { getToken, removeToken } from "../utils/token";
 
 const Header = ({ activeTab, notifications, toggleNotifications, toggleSidebar }) => {
     const navigate = useNavigate();
 
     const handleLoginClick = () => {
-        navigate('/login');
+        if (getToken()) {
+            removeToken();
+            navigate('/login');
+        } else {
+            navigate('/login');
+        }
     };
 
     return (
@@ -43,7 +49,7 @@ const Header = ({ activeTab, notifications, toggleNotifications, toggleSidebar }
                     className="bg-red-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded hover:bg-red-600 flex items-center"
                 >
                     <AiOutlineLogout className="w-4 h-4" />
-                    <span className="hidden sm:inline ml-2">login</span>
+                    <span className="hidden sm:inline ml-2">{getToken() ? "Logout" : "Login"}</span>
                 </button>
             </div>
         </header>

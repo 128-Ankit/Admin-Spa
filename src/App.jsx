@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, {useState} from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AddSpaDetails from './Pages/AddSpaDetails';
+import GetSpaDetails from './Pages/GetSpaDetails';
 import AdminSpaPage from './Pages/AdminSpaPage';
 import DashboardContent from './Pages/DashboardContent';
 import AddSpa from './Pages/AddSpa';
@@ -85,8 +87,10 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/dashboard" element={<MainLayout />} />
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/" element={<MainLayout />} />
+        <Route path="/" element={<navigate to="/dashboard" replace />} />
+        <Route path="/add-spa-details" element={<AddSpaDetails />} />
+        <Route path="/get-spas-details" element={<GetSpaDetails />} />
       </Routes>
     </BrowserRouter>
   );
