@@ -18,6 +18,7 @@ import UpdateServicesPage from './Pages/UpdateServicesPage';
 import SpaEdit from './components/SpaEdit';
 import InquiryContent from './Pages/InquiryContent';
 import UserProfile from './Pages/UserProfile';
+import Jobs from './components/Jobs';
 
 // Main App Component
 const App = () => {
@@ -56,6 +57,8 @@ const App = () => {
         return <BookingsContent addNotification={addNotification} />;
       case 'inquiries':
         return <InquiryContent />;
+      case 'jobs':
+        return <Jobs />;
       default:
         return <DashboardContent />;
     }

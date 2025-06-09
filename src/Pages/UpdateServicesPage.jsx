@@ -68,8 +68,10 @@ const UpdateServicesPage = () => {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
+
             // Check if response.data has a data property
             const services = response.data?.data || response.data || [];
+            console.log(services)
             setExistingServices(services);
 
             if (services.length === 0) {
@@ -130,7 +132,7 @@ const UpdateServicesPage = () => {
         setSelectedService(service);
         setEditForm({
             ...service,
-            image: '', // Clear image since we can't populate File object
+            image: '',  
         });
     };
 
